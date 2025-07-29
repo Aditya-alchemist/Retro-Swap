@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Y2K Retro Colors */
+  --retro-green: hsl(120, 100%, 50%);
+  --retro-pink: hsl(330, 100%, 71%);
+  --retro-purple: hsl(271, 81%, 56%);
+  --retro-yellow: hsl(51, 100%, 50%);
+  --retro-cyan: hsl(180, 100%, 50%);
+  --retro-lime: hsl(120, 73%, 75%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Y2K Retro Styles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes pulse-retro {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.checkered-bg {
+  background-image: 
+    linear-gradient(45deg, var(--retro-lime) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--retro-lime) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--retro-lime) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--retro-lime) 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+  background-color: var(--retro-green);
+}
+
+.retro-window {
+  border: 3px solid hsl(0, 0%, 0%);
+  box-shadow: 5px 5px 0px hsl(0, 0%, 0%), 10px 10px 20px hsla(0, 0%, 0%, 0.3);
+}
+
+.retro-button {
+  border: 2px solid hsl(0, 0%, 0%);
+  box-shadow: 3px 3px 0px hsl(0, 0%, 0%);
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, var(--retro-yellow) 0%, var(--retro-pink) 100%);
+}
+
+.retro-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px hsl(0, 0%, 0%);
+}
+
+.retro-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px hsl(0, 0%, 0%);
+}
+
+.zebra-pattern {
+  background: repeating-linear-gradient(
+    45deg,
+    hsl(0, 0%, 0%),
+    hsl(0, 0%, 0%) 2px,
+    hsl(0, 0%, 100%) 2px,
+    hsl(0, 0%, 100%) 6px
+  );
+}
+
+.title-bar {
+  background: linear-gradient(90deg, var(--retro-cyan) 0%, var(--retro-purple) 100%);
+  border-bottom: 2px solid hsl(0, 0%, 0%);
+}
+
+.retro-input {
+  background: hsl(0, 0%, 100%);
+  border: 3px inset hsl(0, 0%, 75%);
+  font-family: 'Courier New', monospace;
+}
+
+.floating-element {
+  position: absolute;
+  animation: float 3s ease-in-out infinite;
+}
+
+.star {
+  color: var(--retro-yellow);
+  text-shadow: 2px 2px 0px hsl(0, 0%, 0%);
+}
+
+.retro-card {
+  background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 94%) 100%);
+  border: 3px solid hsl(0, 0%, 0%);
+  box-shadow: 3px 3px 0px hsl(0, 0%, 0%);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s linear infinite;
+}
+
+.animate-pulse-retro {
+  animation: pulse-retro 2s ease-in-out infinite;
+}

@@ -19,8 +19,8 @@ export function Footer() {
               <div>
                 <div className="font-display font-bold mb-3">QUICK LINKS</div>
                 <div className="space-y-2 text-sm font-retro">
-                  <div><a href="https://github.com/Aditya-alchemist/FullStack-UniswapV3-Custom" className="hover:text-retro-purple">Docs</a></div>
-                  <div><a href="https://github.com/Aditya-alchemist/FullStack-UniswapV3-Custom" className="hover:text-retro-purple">Support</a></div>
+                  <div><a href="https://github.com/Aditya-alchemist/Retro-Swap" className="hover:text-retro-purple">Docs</a></div>
+                  <div><a href="https://github.com/Aditya-alchemist/Retro-Swap" className="hover:text-retro-purple">Support</a></div>
                   <div><a href="https://x.com/Adityaalchemist" className="hover:text-retro-purple">Twitter</a></div>
                 </div>
               </div>

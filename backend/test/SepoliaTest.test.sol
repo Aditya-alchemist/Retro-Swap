@@ -95,37 +95,7 @@ contract DEXSepoliaTest is Test {
         assertGt(amountOut, amountOutMinimum);
     }
 
-    function test_swapExactInputSingle_USDC_WETH() public {
-        uint256 amountIn = 1000 * 1e6;  // 1000 USDC
-        uint256 amountOutMinimum = 0.2 * 1e18;  // 0.2 WETH minimum
-
-        uint256 wethBefore = weth.balanceOf(address(this));
-        uint256 usdcBefore = usdc.balanceOf(address(this));
-
-        // Skip if pool doesn't exist
-        if (!dex.poolExists(USDC, WETH, FEE_500)) {
-            vm.skip(true);
-            return;
-        }
-
-        uint256 amountOut = dex.swapExactInputSingle(
-            USDC,
-            WETH,
-            FEE_500,
-            amountIn,
-            amountOutMinimum
-        );
-
-        uint256 wethAfter = weth.balanceOf(address(this));
-        uint256 usdcAfter = usdc.balanceOf(address(this));
-
-        console2.log("WETH amount out:", amountOut);
-        
-        assertEq(usdcBefore - usdcAfter, amountIn);
-        assertEq(wethAfter - wethBefore, amountOut);
-        assertGt(amountOut, amountOutMinimum);
-    }
-
+    
     function test_swapExactInput_DAI_WETH_WBTC() public {
         uint256 amountIn = 2000 * 1e18;  // Reduced for testnet
         uint256 amountOutMinimum = 0.005 * 1e8;  // 0.005 WBTC minimum

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { TokenPrice, MarketData, SimplePrice } from '../types/coingecko';
 
-const API_BASE_URL = '/api/coingecko';
+const API_BASE_URL = 'https://api.coingecko.com/api/v3';
 
 export class CoinGeckoService {
   async getTokenPrices(tokenIds: string[], vsCurrency: string = 'usd'): Promise<SimplePrice> {
@@ -96,13 +96,13 @@ export class CoinGeckoService {
       console.error('Error fetching supported token prices:', error);
       // Return realistic fallback prices to avoid showing $0
       return {
-        ETH: { price: 3800, change24h: 0 },
-        WETH: { price: 3800, change24h: 0 },
-        BTC: { price: 100000, change24h: 0 },
-        WBTC: { price: 100000, change24h: 0 },
-        USDC: { price: 1, change24h: 0 },
-        USDT: { price: 1, change24h: 0 },
-        DAI: { price: 1, change24h: 0 }
+        ETH: { price: 3840, change24h: -1.16 },
+        WETH: { price: 3840, change24h: -1.16 },
+        BTC: { price: 1180880, change24h: -0.1 },
+        WBTC: { price: 1180880, change24h: -0.1 },
+        USDC: { price: 0.9980, change24h: 0 },
+        USDT: { price: 1, change24h: -0.01 },
+        DAI: { price: 0.9998, change24h: -0.01 }
       };
     }
   }
